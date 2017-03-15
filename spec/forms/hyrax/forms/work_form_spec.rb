@@ -1,4 +1,4 @@
-describe Hyrax::Forms::WorkForm, :no_clean do
+RSpec.describe Hyrax::Forms::WorkForm, :no_clean do
   let(:work) { GenericWork.new }
   let(:form) { described_class.new(work, nil, nil) }
 
@@ -74,7 +74,7 @@ describe Hyrax::Forms::WorkForm, :no_clean do
         thumbnail_id: '789',
         keyword: ['derp'],
         source: ['related'],
-        rights: ['http://creativecommons.org/licenses/by/3.0/us/']
+        license: ['http://creativecommons.org/licenses/by/3.0/us/']
       }
     end
 
@@ -88,7 +88,7 @@ describe Hyrax::Forms::WorkForm, :no_clean do
       expect(subject['title']).to eq ['foo']
       expect(subject['description']).to be_empty
       expect(subject['visibility']).to eq 'open'
-      expect(subject['rights']).to eq ['http://creativecommons.org/licenses/by/3.0/us/']
+      expect(subject['license']).to eq ['http://creativecommons.org/licenses/by/3.0/us/']
       expect(subject['keyword']).to eq ['derp']
       expect(subject['source']).to eq ['related']
     end
@@ -169,6 +169,6 @@ describe Hyrax::Forms::WorkForm, :no_clean do
 
   describe ".required_fields" do
     subject { described_class.required_fields }
-    it { is_expected.to eq [:title, :creator, :keyword, :rights] }
+    it { is_expected.to eq [:title, :creator, :keyword, :license] }
   end
 end

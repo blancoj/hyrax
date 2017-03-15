@@ -25,7 +25,7 @@ module Hyrax
 
     # Metadata Methods
     delegate :title, :label, :description, :creator, :contributor, :subject,
-             :publisher, :language, :date_uploaded, :rights,
+             :publisher, :language, :date_uploaded,
              :embargo_release_date, :lease_expiration_date,
              :depositor, :keyword, :title_or_label, :depositor, :keyword,
              :date_created, :date_modified, :itemtype,
@@ -63,9 +63,9 @@ module Hyrax
       end
     end
 
-    def rights
-      return if solr_document.rights.nil?
-      solr_document.rights.first
+    def license
+      return if solr_document.license.nil?
+      solr_document.license.first
     end
 
     def stats_path
