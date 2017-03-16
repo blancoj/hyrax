@@ -9,6 +9,13 @@
     <span class="fa fa-cog"></span> <%= t('hyrax.admin.sidebar.settings') %>
   <% end %>
 
+  <% if can?(:update, :appearance) %>
+    <%= menu.nav_link(hyrax.admin_appearance_path) do %>
+      <% # TODO: in Hyrax 2, this will be nested under settings %>
+      <span class="fa fa-paint-brush"></span> <%= t('hyrax.admin.sidebar.appearance') %>
+    <% end %>
+  <% end %>
+
   <%= menu.nav_link(hyrax.admin_admin_sets_path) do %>
     <span class="fa fa-sitemap"></span> <%= t('hyrax.admin.sidebar.admin_sets') %>
   <% end %>
