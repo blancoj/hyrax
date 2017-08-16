@@ -18,8 +18,12 @@
   <div>
       <%= render 'hyrax/collections/collection_description', presenter: @presenter %>
   </div>
-
-  <div class="col-md-12">
+  <div class="col-sm-2">
+    <% if @banner_file %>
+      <%= image_tag( @banner_file, size: "1600x100", alt: "Edit Entry") %> 
+    <% else %>
+      <%= render 'hyrax/collections/media_display', presenter: @presenter %>
+    <% end %>
     <% unless has_collection_search_parameters? %>
       <%= render 'show_descriptions' %>
     <% end %>
