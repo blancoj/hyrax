@@ -9,4 +9,11 @@ Blacklight.onLoad(function () {
       form[0].action = form[0].action.replace(string_to_replace, collection_id);
       form.append('<input type="hidden" value="add" name="collection[members]"></input>');
   });
+
+  $(".banner[data-background]").each(function() {
+    var $banner = $(this);
+    var url = 'url(' + $banner.data('background') + ')';
+    $banner.css({ "backgroundImage": url });
+  })
+
 });
